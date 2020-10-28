@@ -39,38 +39,44 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: red[500],
   },
 }));
-const Workshop = () => {
+const Workshop = ({
+    name,
+    motto,
+    description,
+    avatarURL,
+    imageURL,
+    locationURL
+  }) => {
   const classes = useStyles();
 
-  return  <Card className={classes.root}>
+  return <Card className={classes.root}>
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            B
-          </Avatar>
+          <Avatar alt={name} src={avatarURL} className={classes.avatar}/>
         }
  
-        title="Biciclar"
-        subheader="Taller / Tienda de bicicletas"
+        title={name}
+        subheader = {
+          motto
+        }
       />
       <CardMedia
         className={classes.media}
-        image = "https://cdn.shopify.com/s/files/1/1290/2773/files/DSC_0951.jpg?v=1537950271"
-        title="Biciclar"
+        image = {
+          imageURL
+        }
+        title={name}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Ofrecemos diversas marcas que tenemos en stock y a pedido.
-
-          Nuestro taller está equipado con todas las herramientas de la marca Park Tool necesarias para brindar un servicio de primera.
- 
+          {description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
+        <IconButton aria-label="share" component={"a"} href={locationURL} target="_black">
           <ShareIcon />
         </IconButton>
         
