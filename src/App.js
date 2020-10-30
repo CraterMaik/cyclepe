@@ -1,10 +1,17 @@
 import React from "react";
 import { ThemeProvider } from '@material-ui/core/styles';
-import theme from "./assets/theme";
-import { CssBaseline } from '@material-ui/core';
-import Layout from "./compoments/Layout";
+import CssBaseline  from '@material-ui/core/CssBaseline';
 
+import theme from "./assets/theme";
+import Layout from "./compoments/Layout";
 import ListWorkshop from "./compoments/workshops/ListWorkshops";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   return <ThemeProvider theme={theme}>
